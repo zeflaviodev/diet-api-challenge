@@ -20,7 +20,7 @@ class MealCreateUseCase(MealCreate):
 
         meal_entity.validate()
 
-        meal = self.meal_repository.create_meal(meal_entity)
+        meal = self.meal_repository.create(meal_entity)
 
         meal_output_dto = OutputealCreateDto(
             id = meal.id,

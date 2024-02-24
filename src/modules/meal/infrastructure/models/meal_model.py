@@ -8,7 +8,7 @@ class MealModel(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String, nullable=False)
     description = Column(String, nullable=False)
-    meal_at = Column(DateTime(timezone=True), nullable=False, default=datetime.datetime.utcnow)
+    meal_at = Column(DateTime(timezone=True), nullable=False, default=datetime.utcnow)
     in_diet = Column(Boolean, nullable=False, default=True)
 
     def __repr__(self):
