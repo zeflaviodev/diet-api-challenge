@@ -3,7 +3,13 @@ from datetime import datetime
 from src.errors.types.bad_request_error import BadRequestError
 
 class MealEntity:
-    def __init__(self, id: int, name: str, description: str, meal_at: datetime, in_diet: bool) :
+    def __init__(self,
+        id: int = None,
+        name: str = '',
+        description: str = '',
+        meal_at: datetime = datetime.now(),
+        in_diet: bool = True
+    ) :
         self.id = id
         self.name = name
         self.description = description
@@ -11,7 +17,8 @@ class MealEntity:
         self.in_diet = in_diet
 
     def validate(self) -> bool:
-        if not self.name or not self.description or not self.meal_at or not self.in_diet:
+
+        if not self.name or not self.description or not self.meal_at:
             raise BadRequestError('Todos os campos obrigatórios devem enviados!')
 
         if not isinstance(self.meal_at, datetime):
