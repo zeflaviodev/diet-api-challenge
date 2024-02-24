@@ -26,7 +26,7 @@ class MealCreateUseCase(MealCreate):
             id = meal.id,
             name = meal.name,
             description = meal.description,
-            meal_at = meal.meal_at,
+            meal_at = meal.meal_at.strftime("%Y-%m-%d"),
             in_diet = meal.in_diet
         )
 

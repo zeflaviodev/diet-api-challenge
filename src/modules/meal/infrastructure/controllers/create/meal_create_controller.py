@@ -1,4 +1,5 @@
 #pylint:disable=broad-exception-raised
+from datetime import datetime
 from src.modules.shares.http.http_response import HttpResponse
 from src.modules.shares.http.http_request import HttpRequest
 from src.modules.meal.domain.meal_create import MealCreate
@@ -14,7 +15,7 @@ class MealCreateController:
         input_meal_create_dto = InputMealCreateDto(
             name=request.body["name"],
             description=request.body["description"],
-            meal_at=request.body["meal_at"],
+            meal_at= datetime.strptime(request.body["meal_at"], "%Y-%m-%d"),
             in_diet=request.body["in_diet"]
         )
 
@@ -25,7 +26,13 @@ class MealCreateController:
             body={
                 "message": "Receita criada com sucesso!",
                 "data": {
-                    "meal" : meal
+                    "meal" : {
+                        "id": meal.id,
+                        "name": meal.name,
+                        "description": meal.description,
+                        "meal_at": meal.meal_at,
+                        "in_diet": meal.in_diet
+                    }
                 }
             }
         )
