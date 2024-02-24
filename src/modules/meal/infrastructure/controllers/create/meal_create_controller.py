@@ -18,12 +18,14 @@ class MealCreateController:
             in_diet=request.body["in_diet"]
         )
 
-        response = self.__use_case.create_meal(input_meal_create_dto)
+        meal = self.__use_case.create_meal(input_meal_create_dto)
 
         return HttpResponse(
             status_code=201,
             body={
                 "message": "Receita criada com sucesso!",
-                "meal" : response
+                "data": {
+                    "meal" : meal
+                }
             }
         )
