@@ -15,3 +15,6 @@ class MealRepositoryInterface(ABC):
 
     @abstractmethod
     def update(self, id: int, meal: Meal) -> Meal: pass
+
+    @abstractmethod
+    def delete(self, id: int) -> None: pass

@@ -45,3 +45,15 @@ class MealRepositoryMemory(MealRepositoryInterface):
         self.meals[index_meal].meal_at = meal.meal_at
         self.meals[index_meal].in_diet = meal.in_diet
         return self.meals[index_meal]
+
+    def delete(self, id: int) -> None:
+        index_meal = None
+        for index, value in enumerate(self.meals):
+            if value.id == id:
+                index_meal = index
+                break
+
+        if not index_meal:
+            return None
+
+        return self.meals.pop(index_meal)
