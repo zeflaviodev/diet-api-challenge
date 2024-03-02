@@ -1,3 +1,4 @@
+# pylint:disable=redefined-builtin
 from abc import ABC, abstractmethod
 from src.domain.entity.meal import Meal
 
@@ -8,3 +9,6 @@ class MealRepositoryInterface(ABC):
 
     @abstractmethod
     def find_all(self) -> list[Meal]: pass
+
+    @abstractmethod
+    def find_by_id(self, id) -> Meal: pass
