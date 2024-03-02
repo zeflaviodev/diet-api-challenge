@@ -38,3 +38,28 @@ def test_meal_update():
     assert meal.description == input_meal_update.description
     assert meal.meal_at == input_meal_update.meal_at
     assert meal.in_diet == input_meal_update.in_diet
+
+
+def test_meal_update_fail():
+    description = 'Teste'
+    meal_at = datetime.strptime('2024-03-01 20:00', '%Y-%m-%d %H:%M')
+    in_diet = True
+
+    repository = MealRepositoryMemory()
+
+    meal_update = MealUpdate(repository)
+
+    input_meal_update = InputMealUpdate(
+        description=description,
+        meal_at=meal_at,
+        in_diet=in_diet,
+    )
+
+    try:
+        meal_update = meal_update.execute(
+            id=12,
+            input_meal_update=input_meal_update
+        )
+    except Exception as e:
+        assert True
+        assert str(e) == 'Todos os campos obrigatórios devem enviados!'
