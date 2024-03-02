@@ -1,18 +1,18 @@
-#pylint: disable=no-member
-"""create meal table
+#pylint:disable=no-member,invalid-name
+"""create meals table
 
-Revision ID: a20e02d77e01
+Revision ID: 9cf3c766d9bf
 Revises: 
-Create Date: 2024-02-18 18:21:22.102045
+Create Date: 2024-03-02 12:38:04.553718
 
 """
 from typing import Sequence, Union
-import sqlalchemy as sa
 from alembic import op
+import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = 'a20e02d77e01'
+revision: str = '9cf3c766d9bf'
 down_revision: Union[str, None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
