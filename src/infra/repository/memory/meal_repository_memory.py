@@ -28,3 +28,20 @@ class MealRepositoryMemory(MealRepositoryInterface):
             if meal.id == id:
                 return meal
         return None
+
+    def update(self, id: int, meal: Meal) -> Meal:
+
+        index_meal = None
+        for index, value in enumerate(self.meals):
+            if value.id == id:
+                index_meal = index
+                break
+
+        if not index_meal:
+            return None
+
+        self.meals[index_meal].name = meal.name
+        self.meals[index_meal].description = meal.description
+        self.meals[index_meal].meal_at = meal.meal_at
+        self.meals[index_meal].in_diet = meal.in_diet
+        return self.meals[index_meal]

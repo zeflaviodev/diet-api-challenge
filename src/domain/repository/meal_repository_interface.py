@@ -11,4 +11,7 @@ class MealRepositoryInterface(ABC):
     def find_all(self) -> list[Meal]: pass
 
     @abstractmethod
-    def find_by_id(self, id) -> Meal: pass
+    def find_by_id(self, id: int) -> Meal: pass
+
+    @abstractmethod
+    def update(self, id: int, meal: Meal) -> Meal: pass
