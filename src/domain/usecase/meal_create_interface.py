@@ -10,15 +10,13 @@ class InputMealCreate():
     meal_at: datetime = None
     in_diet: bool = True
 
-
 @dataclass
 class OutputMealCreate():
     id: int
     name: str
     description: str
-    meal_at: datetime
+    meal_at: str
     in_diet: bool
-
 
 class MealCreateInterface(ABC):
 

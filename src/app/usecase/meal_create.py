@@ -23,6 +23,6 @@ class MealCreate(MealCreateInterface):
             id=new_meal.id,
             name=new_meal.name,
             description=new_meal.description,
-            meal_at=new_meal.meal_at,
+            meal_at=new_meal.meal_at.strftime("%Y-%m-%d %H:%M"),
             in_diet=new_meal.in_diet,
         )
