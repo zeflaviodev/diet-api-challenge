@@ -8,6 +8,9 @@ from src.domain.entity.meal import Meal
 class OutputMealFindAll():
     meals: List[Meal]
 
+    def __len__(self) -> int:
+        return len(self.meals)
+
 class MealFindAllInterface(ABC):
 
     def __init__(self, repository: MealRepositoryInterface) -> None: pass
