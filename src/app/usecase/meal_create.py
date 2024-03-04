@@ -1,4 +1,5 @@
 #pylint:disable=line-too-long
+from datetime import datetime
 from src.domain.usecase.meal_create_interface import MealCreateInterface, InputMealCreate, OutputMealCreate
 from src.domain.repository.meal_repository_interface import MealRepositoryInterface
 from src.domain.entity.meal import Meal
@@ -9,11 +10,14 @@ class MealCreate(MealCreateInterface):
         self.repository = repository
 
     def execute(self, input_meal_create: InputMealCreate) -> OutputMealCreate:
+        meal_at = None
+        if input_meal_create.meal_at :
+            meal_at = datetime.strptime(input_meal_create.meal_at, "%Y-%m-%d %H:%M")
 
         meal = Meal(
             name = input_meal_create.name,
             description = input_meal_create.description,
-            meal_at = input_meal_create.meal_at,
+            meal_at = meal_at,
             in_diet = input_meal_create.in_diet,
         )
 

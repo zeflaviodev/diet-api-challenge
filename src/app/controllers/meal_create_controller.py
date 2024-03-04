@@ -1,7 +1,6 @@
 from src.app.adapters.http_request import HttpRequest
 from src.app.adapters.http_response import HttpResponse
-from src.domain.usecase.meal_create_interface import MealCreateInterface
-from src.domain.usecase.meal_create_interface import InputMealCreate
+from src.domain.usecase.meal_create_interface import MealCreateInterface, InputMealCreate
 
 class MealCreateController:
 
