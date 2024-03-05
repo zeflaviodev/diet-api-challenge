@@ -24,3 +24,12 @@ class Meal:
 
         if not isinstance(self.meal_at, datetime):
             raise BadRequestError('A data e horario da refeição deve ser do tipo datetime!')
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'description': self.description,
+            'meal_at': self.meal_at,
+            'in_diet': self.in_diet
+        }

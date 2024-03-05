@@ -26,23 +26,23 @@ class MealRepositoryDB(MealRepositoryInterface):
                 db_connection.session.rollback()
                 raise exception
 
-    def find_all(self) -> list[Meal]: pass
-        # with DBConnectionHandler() as db_connection:
-        #     try:
-        #         meal_models = db_connection.session.query(MealModel).all()
-        #         meals = [
-        #             MealEntity(
-        #                 id=meal_model.id,
-        #                 name=meal_model.name,
-        #                 description=meal_model.description,
-        #                 meal_at=meal_model.meal_at,
-        #                 in_diet=meal_model.in_diet
-        #             )
-        #             for meal_model in meal_models
-        #         ]
-        #         return meals
-        #     except Exception as exception:
-        #         raise exception
+    def find_all(self) -> list[Meal]:
+        with DBConnectionHandler() as db_connection:
+            try:
+                meal_models = db_connection.session.query(MealModel).all()
+                meals = [
+                    Meal(
+                        id=meal_model.id,
+                        name=meal_model.name,
+                        description=meal_model.description,
+                        meal_at=meal_model.meal_at,
+                        in_diet=meal_model.in_diet
+                    )
+                    for meal_model in meal_models
+                ]
+                return meals
+            except Exception as exception:
+                raise exception
 
     def find_by_id(self, id: int) -> Meal: pass
 
