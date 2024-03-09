@@ -12,4 +12,4 @@ class MealModel(Base):
     in_diet = Column(Boolean, nullable=False, default=True)
 
     def __repr__(self):
-        return f"<Meal [id={self.id}, name={self.first_name}]>"
+        return f"<Meal [id={self.id}, name={self.name}]>"

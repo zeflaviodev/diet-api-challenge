@@ -14,6 +14,6 @@ def test_meal_find_all():
         assert False, f"Erro ao buscar as receitas: {e}"
 
     assert response
-    assert len(response.meals) == 6
+    assert len(response.meals) == 3
     assert isinstance(response, OutputMealFindAll)
     assert isinstance(response.meals[0], Meal)

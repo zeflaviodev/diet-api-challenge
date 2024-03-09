@@ -10,14 +10,14 @@ def test_meal_find_by_id():
     meal_find_by_id = MealFindById(repository)
 
     try:
-        meal = meal_find_by_id.execute(99)
+        meal = meal_find_by_id.execute(22)
     except Exception as e:
         assert False, f"Error: {e}"
 
     assert isinstance(meal, Meal)
-    assert meal.id == 99
-    assert meal.name == "Nome Teste4"
-    assert meal.description == "Descrição Teste4"
+    assert meal.id == 22
+    assert meal.name == "Nome Teste2"
+    assert meal.description == "Descrição Teste2"
 
 def test_meal_find_by_id_not_found():
     repository = MealRepositoryMemory()
@@ -25,7 +25,7 @@ def test_meal_find_by_id_not_found():
     meal_find_by_id = MealFindById(repository)
 
     try:
-        meal_find_by_id.execute(99)
+        meal_find_by_id.execute(22)
     except Exception as e:
         assert True
         assert str(e) == "Meal not found"

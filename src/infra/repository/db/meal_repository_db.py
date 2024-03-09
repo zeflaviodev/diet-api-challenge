@@ -44,7 +44,23 @@ class MealRepositoryDB(MealRepositoryInterface):
             except Exception as exception:
                 raise exception
 
-    def find_by_id(self, id: int) -> Meal: pass
+    def find_by_id(self, id: int) -> Meal:
+        with DBConnectionHandler() as db_connection:
+            try:
+                meal = None
+                meal_model = db_connection.session.query(MealModel).filter_by(id=id).first()
+
+                if meal_model:
+                    meal = Meal(
+                        id=meal_model.id,
+                        name=meal_model.name,
+                        description=meal_model.description,
+                        meal_at=meal_model.meal_at,
+                        in_diet=meal_model.in_diet
+                    )
+                return meal
+            except Exception as exception:
+                raise exception
 
     def update(self, id: int, meal: Meal) -> Meal: pass
 

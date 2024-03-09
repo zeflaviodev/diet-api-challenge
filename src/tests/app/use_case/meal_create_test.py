@@ -25,7 +25,7 @@ def test_meal_create():
     assert new_meal.id is not None
     assert new_meal.name == name
     assert new_meal.description == description
-    assert new_meal.meal_at == meal_at
+    assert datetime.strptime(new_meal.meal_at, "%Y-%m-%d %H:%M") == meal_at
     assert new_meal.in_diet
 
 def test_meal_create_fail():

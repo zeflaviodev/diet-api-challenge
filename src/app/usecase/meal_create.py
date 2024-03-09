@@ -10,8 +10,8 @@ class MealCreate(MealCreateInterface):
         self.repository = repository
 
     def execute(self, input_meal_create: InputMealCreate) -> OutputMealCreate:
-        meal_at = None
-        if input_meal_create.meal_at :
+        meal_at = input_meal_create.meal_at
+        if input_meal_create.meal_at and isinstance(input_meal_create.meal_at, str):
             meal_at = datetime.strptime(input_meal_create.meal_at, "%Y-%m-%d %H:%M")
 
         meal = Meal(

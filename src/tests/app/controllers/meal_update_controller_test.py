@@ -10,7 +10,7 @@ def test_meal_update_controller():
 
     http_request = HttpRequest(
         body = {
-            "id": 12,
+            "id": 99,
             "name": "test",
             "description": "test",
             "meal_at": datetime.strptime('2024-02-29', '%Y-%m-%d'),
@@ -42,7 +42,7 @@ def test_meal_update_controller_fail():
 
     http_request = HttpRequest(
         body = {
-            "id": 12,
+            "id": 99,
             "description": "test",
             "meal_at": datetime.strptime('2024-02-29', '%Y-%m-%d'),
             "in_diet": True

@@ -10,6 +10,7 @@ class MealFindById(MealFindByIdInterface):
         self.repository = respository
 
     def execute(self, id: int) -> Meal:
+
         meal = self.repository.find_by_id(id)
 
         if meal is None:

@@ -10,14 +10,14 @@ def test_meal_delete():
     meal_delete = MealDelete(repository)
 
     try:
-        meal_delete.execute(12)
+        meal_delete.execute(99)
     except Exception as e:
         assert False, f"Error: {e}"
 
     meal_find_by_id = MealFindById(repository)
 
     try:
-        meal_find_by_id.execute(12)
+        meal_find_by_id.execute(99)
     except Exception as e:
         assert True
         assert str(e) == "Meal not found"

@@ -23,7 +23,7 @@ def test_meal_update():
 
     try:
         meal_update = meal_update.execute(
-            id=12,
+            id=22,
             input_meal_update=input_meal_update
         )
     except Exception as e:
@@ -31,9 +31,9 @@ def test_meal_update():
 
     meal_find_by_id = MealFindById(repository)
 
-    meal = meal_find_by_id.execute(id=12)
+    meal = meal_find_by_id.execute(id=22)
 
-    assert meal_update.id == 12
+    assert meal_update.id == 22
     assert meal.name == input_meal_update.name
     assert meal.description == input_meal_update.description
     assert meal.meal_at == input_meal_update.meal_at
@@ -57,7 +57,7 @@ def test_meal_update_fail():
 
     try:
         meal_update = meal_update.execute(
-            id=12,
+            id=22,
             input_meal_update=input_meal_update
         )
     except Exception as e:
